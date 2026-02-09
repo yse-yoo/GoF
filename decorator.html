@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Singleton Theme App</title>
+</head>
+
+<body id="app-body" class="bg-white text-black transition-colors duration-300">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4">
+        <div class="text-center mb-8 w-full max-w-md">
+            <h1 class="text-3xl font-bold mb-4">Decorator Pattern</h1>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700">
+                <input id="text-input" type="text" value="Hello Design Patterns!" 
+                       class="w-full border p-2 rounded text-black mb-4">
+                
+                <div class="flex flex-wrap justify-center gap-2 mb-6 text-sm">
+                    <label class="flex items-center gap-1 cursor-pointer">
+                        <input type="checkbox" id="check-bold" onchange="updatePreview()"> 太字
+                    </label>
+                    <label class="flex items-center gap-1 cursor-pointer">
+                        <input type="checkbox" id="check-italic" onchange="updatePreview()"> 斜体
+                    </label>
+                    <label class="flex items-center gap-1 cursor-pointer">
+                        <input type="checkbox" id="check-border" onchange="updatePreview()"> 枠線
+                    </label>
+                </div>
+                
+                <div class="text-xs text-gray-400 mb-2 uppercase font-bold">Preview</div>
+                <div id="preview-container" class="min-h-[60px] flex items-center justify-center p-2 border border-dashed rounded">
+                    </div>
+            </div>
+        </div>
+
+        <div id="info-card" class="max-w-2xl w-full p-6 bg-gray-100 rounded-xl border border-gray-200 transition-colors duration-300">
+            <h2 class="text-xl font-bold mb-3 border-b pb-2">Pattern 解説: Decorator</h2>
+            <ul class="space-y-4 text-sm leading-relaxed">
+                <li>**1. 柔軟な拡張:** クラスの継承を使わずに、実行時にオブジェクトへ機能を追加できます。</li>
+                <li>**2. 組み合わせの自由:** 「太字かつ斜体」のように、複数の装飾を自由に重ね合わせ（スタック）られます。</li>
+                <li>**3. Webでの用途:** UIコンポーネントのスタイリング、APIリクエストへのヘッダー追加、ロギング機能の付与などに使われます。</li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/decorator.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Singleton Theme App</title>
+</head>
+
+<body id="app-body" class="bg-white text-black transition-colors duration-300">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4">
+        <div class="text-center mb-8 w-full max-w-md">
+            <h1 class="text-3xl font-bold mb-4">Facade Pattern</h1>
+            <div class="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700">
+                
+                <div class="grid grid-cols-3 gap-2 mb-8 text-[10px] font-bold uppercase">
+                    <div id="status-light" class="p-2 border rounded bg-gray-50 dark:bg-slate-900 text-gray-400">Lights: OFF</div>
+                    <div id="status-music" class="p-2 border rounded bg-gray-50 dark:bg-slate-900 text-gray-400">Music: OFF</div>
+                    <div id="status-screen" class="p-2 border rounded bg-gray-50 dark:bg-slate-900 text-gray-400">Screen: OFF</div>
+                </div>
+
+                <div class="space-y-3">
+                    <button id="theater-on-btn" class="w-full px-6 py-3 bg-amber-500 text-white rounded-lg font-bold hover:bg-amber-600 transition shadow-lg shadow-amber-500/30">
+                        🎬 シアターモード開始 (Facade)
+                    </button>
+                    <button id="theater-off-btn" class="w-full px-6 py-3 bg-gray-600 text-white rounded-lg font-bold hover:bg-gray-700 transition">
+                        🏠 全て終了
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="info-card" class="max-w-2xl w-full p-6 bg-gray-100 rounded-xl border border-gray-200 transition-colors duration-300">
+            <h2 class="text-xl font-bold mb-3 border-b pb-2">Pattern 解説: Facade</h2>
+            <ul class="space-y-4 text-sm leading-relaxed">
+                <li>**1. インターフェースの簡略化:** 複雑な複数のサブシステムを裏側に隠し、利用側には一つの簡単なメソッドだけを提供します。</li>
+                <li>**2. 疎結合の促進:** 利用側はサブシステムの中身を詳しく知る必要がないため、システムの変更に強い構造になります。</li>
+                <li>**3. Webでの用途:** 複数のAPIリクエストを一つの関数で実行する場合や、複雑なDOM操作、外部ライブラリ（Three.jsやD3.jsなど）のラッパーとしてよく使われます。</li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/facade.js"></script>
+</body>
+
+</html>

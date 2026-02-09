@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Singleton Theme App</title>
+</head>
+
+<body id="app-body" class="bg-white text-black transition-colors duration-300">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4">
+        <div class="text-center mb-8 w-full max-w-md">
+            <h1 class="text-3xl font-bold mb-4">Builder Pattern</h1>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700">
+                
+                <div class="space-y-4 text-left mb-6">
+                    <div>
+                        <label class="text-xs font-bold text-gray-400 block mb-1">Type</label>
+                        <select id="build-type" class="w-full border p-2 rounded text-sm text-black">
+                            <option value="success">Success (成功)</option>
+                            <option value="error">Error (エラー)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-gray-400 block mb-1">Message</label>
+                        <input id="build-msg" type="text" placeholder="メッセージを入力..." class="w-full border p-2 rounded text-sm text-black">
+                    </div>
+                </div>
+
+                <button id="build-btn" class="w-full px-6 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition">
+                    通知カードをビルド
+                </button>
+                
+                <div id="preview-area" class="mt-6 flex justify-center min-h-[80px]">
+                    </div>
+            </div>
+        </div>
+
+        <div id="info-card" class="max-w-2xl w-full p-6 bg-gray-100 rounded-xl border border-gray-200 transition-colors duration-300">
+            <h2 class="text-xl font-bold mb-3 border-b pb-2">Pattern 解説: Builder</h2>
+            <ul class="space-y-4 text-sm leading-relaxed">
+                <li>**1. 構築手順の分離:** オブジェクトの「表現方法」と「構築手順」を切り離します。同じ手順でも、使うビルダーによって異なる結果を得られます。</li>
+                <li>**2. 読みやすさの向上:** コンストラクタの引数が10個もあるような「巨大なコンストラクタ」を避け、メソッドチェーンなどで分かりやすく構築できます。</li>
+                <li>**3. Webでの用途:** 複雑なUIコンポーネントの動的生成、SQLクエリビルダ、リクエストパラメータの構築などで多用されます。</li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/builder.js"></script>
+</body>
+
+</html>

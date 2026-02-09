@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Singleton Theme App</title>
+</head>
+
+<body id="app-body" class="bg-white text-black transition-colors duration-300">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold mb-4">Observer Pattern</h1>
+            <input id="message-input" type="text" placeholder="メッセージを入力..." class="border p-2 rounded text-black mb-2">
+            <button id="notify-btn"
+                class="block mx-auto px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                全員に通知
+            </button>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mb-10 w-full max-w-md text-center">
+            <div id="observer-1" class="p-4 bg-blue-100 dark:bg-blue-900 rounded shadow">通知待機中...</div>
+            <div id="observer-2" class="p-4 bg-purple-100 dark:bg-purple-900 rounded shadow">通知待機中...</div>
+        </div>
+
+        <div id="info-card"
+            class="max-w-2xl w-full p-6 bg-gray-100 rounded-xl border border-gray-200 transition-colors duration-300">
+            <h2 class="text-xl font-bold mb-3 border-b pb-2">Pattern 解説: Observer</h2>
+            <ul class="space-y-4 text-sm">
+                <li><strong>1. 購読システム:</strong> 変更を監視する側（Observer）をリストに登録しておきます。</li>
+                <li><strong>2. 自動通知:</strong> 主体（Subject）が更新されると、登録された全員に一斉に通知が飛びます。</li>
+                <li><strong>3. Webでの用途:</strong> イベントリスナー（clickなど）はこのパターンの代表例です。</li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/observer.js"></script>
+</body>
+
+</html>

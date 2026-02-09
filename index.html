@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>GoF Design Patterns Portal</title>
+    <style>
+        html { scroll-behavior: smooth; }
+        .pattern-card:hover { transform: translateY(-4px); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+
+    <header class="bg-slate-900 text-white py-16 px-4 shadow-xl text-center">
+        <div class="max-w-5xl mx-auto">
+            <h1 class="text-5xl font-extrabold mb-4 tracking-tight">GoF Design Patterns</h1>
+            <p class="text-slate-400 text-lg italic">Essential design patterns for modern web development</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-24">
+        
+        <nav class="sticky top-4 z-50 my-10 p-4 bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-gray-100">
+            <div class="flex flex-wrap justify-center gap-6 text-sm font-bold">
+                <a href="#creational" class="text-blue-600 hover:text-blue-800">生成 (Creational)</a>
+                <a href="#structural" class="text-emerald-600 hover:text-emerald-800">構造 (Structural)</a>
+                <a href="#behavioral" class="text-orange-600 hover:text-orange-800">振る舞い (Behavioral)</a>
+            </div>
+        </nav>
+
+        <section id="creational" class="mb-16 scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="w-2 h-8 bg-blue-500 rounded-full"></span>
+                生成に関するパターン <span class="text-gray-400 font-normal text-xl">Creational</span>
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
+                    <div class="text-xs font-black text-blue-500 mb-2 uppercase">Singleton</div>
+                    <h3 class="text-xl font-bold mb-3">Theme Manager</h3>
+                    <p class="text-gray-500 text-sm mb-6">インスタンスの唯一性を保証。アプリ全体のテーマ（Light/Dark）を一括管理します。</p>
+                    <a href="singleton.html" class="block text-center py-2 bg-blue-50 text-blue-600 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition">デモを見る</a>
+                </div>
+                <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
+                    <div class="text-xs font-black text-blue-500 mb-2 uppercase">Factory Method</div>
+                    <h3 class="text-xl font-bold mb-3">UI Factory</h3>
+                    <p class="text-gray-500 text-sm mb-6">生成ロジックの隠蔽。条件に応じて異なるUIコンポーネントを動的に生成します。</p>
+                    <a href="factory.html" class="block text-center py-2 bg-blue-50 text-blue-600 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition">デモを見る</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition">
+                    <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">Builder</span>
+                    <h3 class="text-xl font-bold mt-2 mb-2">Notification Builder</h3>
+                    <p class="text-gray-600 text-sm mb-4">複雑なオブジェクトを段階的に組み立てて作成します。</p>
+                    <a href="builder.html" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded text-sm hover:bg-indigo-700">デモを見る</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="structural" class="mb-16 scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="w-2 h-8 bg-emerald-500 rounded-full"></span>
+                構造に関するパターン <span class="text-gray-400 font-normal text-xl">Structural</span>
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
+                    <div class="text-xs font-black text-emerald-500 mb-2 uppercase">Adapter</div>
+                    <h3 class="text-xl font-bold mb-3">Data Converter</h3>
+                    <p class="text-gray-500 text-sm mb-6">インターフェースの変換。古い形式のデータを現代的なUIに適合させます。</p>
+                    <a href="adapter.html" class="block text-center py-2 bg-emerald-50 text-emerald-600 rounded-lg font-bold hover:bg-emerald-600 hover:text-white transition">デモを見る</a>
+                </div>
+                <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
+                    <div class="text-xs font-black text-emerald-500 mb-2 uppercase">Decorator</div>
+                    <h3 class="text-xl font-bold mb-3">Text Styler</h3>
+                    <p class="text-gray-500 text-sm mb-6">動的な機能拡張。テキストに対して太字や枠線などの装飾を重ねがけします。</p>
+                    <a href="decorator.html" class="block text-center py-2 bg-emerald-50 text-emerald-600 rounded-lg font-bold hover:bg-emerald-600 hover:text-white transition">デモを見る</a>
+                </div>
+                <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
+                    <div class="text-xs font-black text-emerald-500 mb-2 uppercase">Facade</div>
+                    <h3 class="text-xl font-bold mb-3">Home Cinema</h3>
+                    <p class="text-gray-500 text-sm mb-6">窓口の一本化。複数の複雑なサブシステムを一括操作する簡潔な命令を提供します。</p>
+                    <a href="facade.html" class="block text-center py-2 bg-emerald-50 text-emerald-600 rounded-lg font-bold hover:bg-emerald-600 hover:text-white transition">デモを見る</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="behavioral" class="mb-16 scroll-mt-24">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="w-2 h-8 bg-orange-500 rounded-full"></span>
+                振る舞いに関するパターン <span class="text-gray-400 font-normal text-xl">Behavioral</span>
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
+                    <div class="text-xs font-black text-orange-500 mb-2 uppercase">Observer</div>
+                    <h3 class="text-xl font-bold mb-3">Message Notifier</h3>
+                    <p class="text-gray-500 text-sm mb-6">状態変化の自動通知。ある変更を登録された複数の監視者へ一斉に伝えます。</p>
+                    <a href="observer.html" class="block text-center py-2 bg-orange-50 text-orange-600 rounded-lg font-bold hover:bg-orange-600 hover:text-white transition">デモを見る</a>
+                </div>
+                <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
+                    <div class="text-xs font-black text-orange-500 mb-2 uppercase">Strategy</div>
+                    <h3 class="text-xl font-bold mb-3">Price Calculator</h3>
+                    <p class="text-gray-500 text-sm mb-6">アルゴリズムの切り替え。割引計算などのロジックを動的に入れ替えます。</p>
+                    <a href="strategy.html" class="block text-center py-2 bg-orange-50 text-orange-600 rounded-lg font-bold hover:bg-orange-600 hover:text-white transition">デモを見る</a>
+                </div>
+                <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
+                    <div class="text-xs font-black text-orange-500 mb-2 uppercase">State</div>
+                    <h3 class="text-xl font-bold mb-3">Workflow Manager</h3>
+                    <p class="text-gray-500 text-sm mb-6">状態による振る舞いの変化。進捗状況に応じてボタンの機能を自動変更します。</p>
+                    <a href="state.html" class="block text-center py-2 bg-orange-50 text-orange-600 rounded-lg font-bold hover:bg-orange-600 hover:text-white transition">デモを見る</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-12 border-t bg-white text-gray-400 text-sm">
+        <p>&copy; 2026 Design Patterns Study Portal</p>
+        <p class="mt-2">Created with HTML, Tailwind CSS, and Vanilla JS</p>
+    </footer>
+
+</body>
+</html>

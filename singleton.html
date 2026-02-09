@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Singleton Theme App</title>
+</head>
+
+<body id="app-body" class="bg-white text-black transition-colors duration-300">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-bold mb-4">Singleton Pattern</h1>
+            <p id="status-text" class="mb-6">現在のモード: LIGHT</p>
+            <button id="toggle-btn" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                モードを切り替える
+            </button>
+        </div>
+
+        <div id="info-card" class="max-w-2xl w-full p-6 bg-gray-100 rounded-xl shadow-md border border-gray-200 transition-colors duration-300">
+            <h2 class="text-xl font-bold mb-3 border-b pb-2">Design Pattern: Singleton</h2>
+            <ul class="space-y-4 text-sm md:text-base">
+                <li class="flex gap-3">
+                    <span class="text-blue-500 font-bold">1. 唯一性の確保</span>
+                    <span><code>new ThemeManager()</code> を何度呼んでも、最初に生成された同一のインスタンスが返されます。</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-blue-500 font-bold">2. グローバルな状態共有</span>
+                    <span>「今のテーマは何か？」という状態を一つのオブジェクトが集中管理するため、UIの不整合が起きません。</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-blue-500 font-bold">3. JSでの実装</span>
+                    <span>クラスの静的プロパティ（<code>instance</code>）に自分自身を保存し、コンストラクタでそれをチェックするのが一般的です。</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/singleton.js"></script>
+</body>
+
+</html>

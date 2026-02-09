@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Singleton Theme App</title>
+</head>
+
+
+<body id="app-body" class="bg-white text-black transition-colors duration-300">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4">
+        <div class="text-center mb-8 w-full max-w-sm">
+            <h1 class="text-3xl font-bold mb-4">Strategy Pattern</h1>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700">
+                <label class="block text-left text-sm font-bold mb-2">元の金額 (円)</label>
+                <input id="price-input" type="number" value="5000" 
+                       class="w-full border p-2 rounded text-black mb-4">
+                
+                <div class="flex flex-col gap-2 mb-6">
+                    <button onclick="setDiscount('regular')" class="strategy-btn px-4 py-2 bg-gray-200 dark:bg-slate-700 rounded hover:bg-gray-300">通常価格 (0%)</button>
+                    <button onclick="setDiscount('percent')" class="strategy-btn px-4 py-2 bg-gray-200 dark:bg-slate-700 rounded hover:bg-gray-300">セール (20% OFF)</button>
+                    <button onclick="setDiscount('fixed')" class="strategy-btn px-4 py-2 bg-gray-200 dark:bg-slate-700 rounded hover:bg-gray-300">クーポン (1,000円引)</button>
+                </div>
+                
+                <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                    支払額: <span id="total-price">5000</span>円
+                </div>
+            </div>
+        </div>
+
+        <div id="info-card" class="max-w-2xl w-full p-6 bg-gray-100 rounded-xl border border-gray-200 transition-colors duration-300">
+            <h2 class="text-xl font-bold mb-3 border-b pb-2">Pattern 解説: Strategy</h2>
+            <ul class="space-y-4 text-sm leading-relaxed">
+                <li><strong>1. 戦略の分離:</strong> 「計算ロジック」を独立したクラスとして定義します。</li>
+                <li><strong>2. 付け替え可能:</strong> メインの処理コードを書き換えることなく、計算ルールだけを動的に差し替えられます。</li>
+                <li><strong>3. Webでの用途:</strong> 決済手段の切り替え（カード、PayPayなど）や、データの並び替えルールの変更によく使われます。</li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/strategy.js"></script>
+</body>
+
+</html>
