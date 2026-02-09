@@ -5,9 +5,11 @@ class Subject {
         this.observers = []; 
     }
     subscribe(observer) {
+        // 監視者を追加
         this.observers.push(observer);
     }
     notify(data) {
+        // 全ての監視者に通知
         this.observers.forEach(obs => obs.update(data));
     }
 }

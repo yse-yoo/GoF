@@ -17,7 +17,9 @@ class BookDataAdapter {
 
     // 新しいUIが使いやすい形式に変換して提供する
     getFormattedData() {
+        // 旧APIからデータを取得
         const [title, date] = this.legacyAPI.getData();
+        // オブジェクト形式に変換
         return {
             title: `📘 ${title}`,
             date: `投稿日: ${date}`

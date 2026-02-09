@@ -1,39 +1,70 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Singleton Theme App</title>
+    <title>Observer Pattern Study</title>
 </head>
-
 <body id="app-body" class="bg-white text-black transition-colors duration-300">
-    <div class="flex flex-col items-center justify-center min-h-screen p-4">
-        <div class="text-center mb-8">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4 gap-8">
+        
+        <div class="text-center w-full max-w-md">
             <h1 class="text-3xl font-bold mb-4">Observer Pattern</h1>
-            <input id="message-input" type="text" placeholder="メッセージを入力..." class="border p-2 rounded text-black mb-2">
-            <button id="notify-btn"
-                class="block mx-auto px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-                全員に通知
-            </button>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700 text-left">
+                <div class="mb-6">
+                    <input id="message-input" type="text" placeholder="メッセージを入力..." 
+                           class="w-full border p-2 rounded text-black mb-4 text-sm focus:ring-2 focus:ring-green-500 outline-none">
+                    <button id="notify-btn" class="w-full px-6 py-2 bg-green-600 text-white rounded-lg font-bold hover:bg-green-700 transition shadow-lg shadow-green-500/20">
+                        全員に一斉通知
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div id="observer-1" class="p-4 bg-blue-50 dark:bg-slate-900 border border-blue-100 dark:border-slate-700 rounded-lg text-center text-xs text-blue-600 font-bold transition-all">通知待機中...</div>
+                    <div id="observer-2" class="p-4 bg-purple-50 dark:bg-slate-900 border border-purple-100 dark:border-slate-700 rounded-lg text-center text-xs text-purple-600 font-bold transition-all">通知待機中...</div>
+                </div>
+            </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mb-10 w-full max-w-md text-center">
-            <div id="observer-1" class="p-4 bg-blue-100 dark:bg-blue-900 rounded shadow">通知待機中...</div>
-            <div id="observer-2" class="p-4 bg-purple-100 dark:bg-purple-900 rounded shadow">通知待機中...</div>
-        </div>
-
-        <div id="info-card"
-            class="max-w-2xl w-full p-6 bg-gray-100 rounded-xl border border-gray-200 transition-colors duration-300">
-            <h2 class="text-xl font-bold mb-3 border-b pb-2">Pattern 解説: Observer</h2>
-            <ul class="space-y-4 text-sm">
-                <li><strong>1. 購読システム:</strong> 変更を監視する側（Observer）をリストに登録しておきます。</li>
-                <li><strong>2. 自動通知:</strong> 主体（Subject）が更新されると、登録された全員に一斉に通知が飛びます。</li>
-                <li><strong>3. Webでの用途:</strong> イベントリスナー（clickなど）はこのパターンの代表例です。</li>
+        <div id="info-card" class="max-w-2xl w-full p-6 bg-gray-100 rounded-xl border border-gray-200 transition-colors duration-300">
+            <h2 class="text-xl font-bold mb-3 border-b pb-2 text-green-600">Pattern 解説: Observer</h2>
+            <ul class="space-y-4 text-sm md:text-base">
+                <li class="flex gap-3">
+                    <span class="text-green-500 font-bold">1. 疎結合な通知システム</span>
+                    <span>通知を送る側（Subject）は、受け取る側（Observer）が具体的に誰であるかを知らずに情報を送れます。</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-green-500 font-bold">2. 動的な購読管理</span>
+                    <span>実行時に <code>subscribe</code> するだけで、新しい通知先を自由に追加・削除できます。</span>
+                </li>
             </ul>
+        </div>
+
+        <div id="code-card" class="max-w-2xl w-full p-6 bg-slate-900 text-slate-300 rounded-xl shadow-xl border border-slate-700">
+            <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-2">
+                <h3 class="text-sm font-mono font-bold text-slate-400">js/observer.js</h3>
+                <span class="text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-400 uppercase">JavaScript</span>
+            </div>
+            <pre class="text-xs md:text-sm overflow-x-auto leading-relaxed font-mono">
+<span class="text-gray-500">// 主体: 監視者のリストを持ち、一斉に叩く</span>
+<span class="text-pink-400">class</span> <span class="text-yellow-300">Subject</span> {
+    <span class="text-pink-400">constructor</span>() { <span class="text-cyan-400">this</span>.observers = []; }
+    
+    <span class="text-yellow-300">subscribe</span>(obs) { <span class="text-cyan-400">this</span>.observers.<span class="text-yellow-300">push</span>(obs); }
+    
+    <span class="text-yellow-300">notify</span>(data) {
+        <span class="text-cyan-400">this</span>.observers.<span class="text-yellow-300">forEach</span>(obs => obs.<span class="text-yellow-300">update</span>(data));
+    }
+}
+
+<span class="text-gray-500">// 監視者: updateメソッドを実装しておく</span>
+<span class="text-pink-400">class</span> <span class="text-yellow-300">UIObserver</span> {
+    <span class="text-yellow-300">update</span>(data) { 
+        <span class="text-cyan-400">this</span>.element.innerText = <span class="text-orange-300">`受信: </span>${data}<span class="text-orange-300">`</span>; 
+    }
+}</pre>
         </div>
     </div>
     <script src="js/observer.js"></script>
 </body>
-
 </html>

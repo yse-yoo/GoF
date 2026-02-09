@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Singleton Theme App</title>
+    <title>Singleton Pattern Study</title>
 </head>
-
 <body id="app-body" class="bg-white text-black transition-colors duration-300">
-    <div class="flex flex-col items-center justify-center min-h-screen p-4">
-        <div class="text-center mb-10">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4 gap-8">
+        
+        <div class="text-center">
             <h1 class="text-3xl font-bold mb-4">Singleton Pattern</h1>
             <p id="status-text" class="mb-6">現在のモード: LIGHT</p>
             <button id="toggle-btn" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
@@ -28,14 +27,32 @@
                     <span class="text-blue-500 font-bold">2. グローバルな状態共有</span>
                     <span>「今のテーマは何か？」という状態を一つのオブジェクトが集中管理するため、UIの不整合が起きません。</span>
                 </li>
-                <li class="flex gap-3">
-                    <span class="text-blue-500 font-bold">3. JSでの実装</span>
-                    <span>クラスの静的プロパティ（<code>instance</code>）に自分自身を保存し、コンストラクタでそれをチェックするのが一般的です。</span>
-                </li>
             </ul>
+        </div>
+
+        <div id="code-card" class="max-w-2xl w-full p-6 bg-slate-800 text-slate-300 rounded-xl shadow-xl border border-slate-700 overflow-hidden">
+            <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-2">
+                <h3 class="text-sm font-mono font-bold text-slate-400">js/singleton.js</h3>
+                <span class="text-[10px] bg-slate-700 px-2 py-1 rounded text-slate-400 uppercase">JavaScript</span>
+            </div>
+            <pre class="text-xs md:text-sm overflow-x-auto leading-relaxed font-mono">
+<span class="text-pink-400">class</span> <span class="text-yellow-300">ThemeManager</span> {
+    <span class="text-pink-400">constructor</span>() {
+        <span class="text-gray-500">// インスタンスが既に存在すればそれを返す</span>
+        <span class="text-pink-400">if</span> (<span class="text-yellow-300">ThemeManager</span>.instance) {
+            <span class="text-pink-400">return</span> <span class="text-yellow-300">ThemeManager</span>.instance;
+        }
+        <span class="text-cyan-400">this</span>.theme = <span class="text-orange-300">'light'</span>;
+        <span class="text-yellow-300">ThemeManager</span>.instance = <span class="text-cyan-400">this</span>;
+    }
+
+    <span class="text-yellow-300">toggleTheme</span>() {
+        <span class="text-cyan-400">this</span>.theme = <span class="text-cyan-400">this</span>.theme === <span class="text-orange-300">'light'</span> ? <span class="text-orange-300">'dark'</span> : <span class="text-orange-300">'light'</span>;
+        <span class="text-cyan-400">this</span>.<span class="text-yellow-300">applyTheme</span>();
+    }
+}</pre>
         </div>
     </div>
     <script src="js/singleton.js"></script>
 </body>
-
 </html>

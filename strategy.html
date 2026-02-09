@@ -1,44 +1,75 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Singleton Theme App</title>
+    <title>Strategy Pattern Study</title>
 </head>
-
-
 <body id="app-body" class="bg-white text-black transition-colors duration-300">
-    <div class="flex flex-col items-center justify-center min-h-screen p-4">
-        <div class="text-center mb-8 w-full max-w-sm">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4 gap-8">
+        
+        <div class="text-center w-full max-w-sm">
             <h1 class="text-3xl font-bold mb-4">Strategy Pattern</h1>
             <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700">
-                <label class="block text-left text-sm font-bold mb-2">元の金額 (円)</label>
+                <label class="block text-left text-[10px] font-black text-gray-400 uppercase mb-2 tracking-widest">Base Price (JPY)</label>
                 <input id="price-input" type="number" value="5000" 
-                       class="w-full border p-2 rounded text-black mb-4">
+                       class="w-full border p-2 rounded text-black mb-6 text-lg font-bold focus:ring-2 focus:ring-blue-500 outline-none">
                 
-                <div class="flex flex-col gap-2 mb-6">
-                    <button onclick="setDiscount('regular')" class="strategy-btn px-4 py-2 bg-gray-200 dark:bg-slate-700 rounded hover:bg-gray-300">通常価格 (0%)</button>
-                    <button onclick="setDiscount('percent')" class="strategy-btn px-4 py-2 bg-gray-200 dark:bg-slate-700 rounded hover:bg-gray-300">セール (20% OFF)</button>
-                    <button onclick="setDiscount('fixed')" class="strategy-btn px-4 py-2 bg-gray-200 dark:bg-slate-700 rounded hover:bg-gray-300">クーポン (1,000円引)</button>
+                <div class="flex flex-col gap-2 mb-8">
+                    <button onclick="setDiscount('regular')" class="px-4 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-bold hover:bg-blue-500 hover:text-white transition-all">通常価格 (0%)</button>
+                    <button onclick="setDiscount('percent')" class="px-4 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-bold hover:bg-blue-500 hover:text-white transition-all">セール (20% OFF)</button>
+                    <button onclick="setDiscount('fixed')" class="px-4 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-bold hover:bg-blue-500 hover:text-white transition-all">クーポン (1,000円引)</button>
                 </div>
                 
-                <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                    支払額: <span id="total-price">5000</span>円
+                <div class="pt-4 border-t border-dashed border-gray-200">
+                    <div class="text-xs text-gray-400 uppercase font-bold mb-1">Total Amount</div>
+                    <div class="text-3xl font-black text-blue-600 dark:text-blue-400">
+                        ¥<span id="total-price">5,000</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div id="info-card" class="max-w-2xl w-full p-6 bg-gray-100 rounded-xl border border-gray-200 transition-colors duration-300">
-            <h2 class="text-xl font-bold mb-3 border-b pb-2">Pattern 解説: Strategy</h2>
-            <ul class="space-y-4 text-sm leading-relaxed">
-                <li><strong>1. 戦略の分離:</strong> 「計算ロジック」を独立したクラスとして定義します。</li>
-                <li><strong>2. 付け替え可能:</strong> メインの処理コードを書き換えることなく、計算ルールだけを動的に差し替えられます。</li>
-                <li><strong>3. Webでの用途:</strong> 決済手段の切り替え（カード、PayPayなど）や、データの並び替えルールの変更によく使われます。</li>
+            <h2 class="text-xl font-bold mb-3 border-b pb-2 text-blue-600">Pattern 解説: Strategy</h2>
+            <ul class="space-y-4 text-sm md:text-base">
+                <li class="flex gap-3">
+                    <span class="text-blue-500 font-bold">1. アルゴリズムの部品化</span>
+                    <span>計算ロジックをクラスとして独立させることで、本体（Checkout）のコードを汚さずにルールを増やせます。</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-blue-500 font-bold">2. 実行時の動的切り替え</span>
+                    <span>「今の支払いにはこの計算機を使う」という指示を出すだけで、中身を書き換えずに挙動を変更できます。</span>
+                </li>
             </ul>
+        </div>
+
+        <div id="code-card" class="max-w-2xl w-full p-6 bg-slate-900 text-slate-300 rounded-xl shadow-xl border border-slate-700">
+            <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-2">
+                <h3 class="text-sm font-mono font-bold text-slate-400">js/strategy.js</h3>
+                <span class="text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-400 uppercase">JavaScript</span>
+            </div>
+            <pre class="text-xs md:text-sm overflow-x-auto leading-relaxed font-mono">
+<span class="text-gray-500">// 戦略群: 同じ「calculate」メソッドを持つ</span>
+<span class="text-pink-400">class</span> <span class="text-yellow-300">PercentDiscount</span> {
+    <span class="text-yellow-300">calculate</span>(price) { <span class="text-pink-400">return</span> price * <span class="text-orange-300">0.8</span>; }
+}
+
+<span class="text-pink-400">class</span> <span class="text-yellow-300">FixedDiscount</span> {
+    <span class="text-yellow-300">calculate</span>(price) { <span class="text-pink-400">return</span> price - <span class="text-orange-300">1000</span>; }
+}
+
+<span class="text-gray-500">// コンテキスト: どの戦略を使うか保持する</span>
+<span class="text-pink-400">class</span> <span class="text-yellow-300">Checkout</span> {
+    <span class="text-yellow-300">setStrategy</span>(strategy) { <span class="text-cyan-400">this</span>.strategy = strategy; }
+    
+    <span class="text-yellow-300">calculate</span>(price) {
+        <span class="text-gray-500">// 実際の計算はセットされた戦略に任せる</span>
+        <span class="text-pink-400">return</span> <span class="text-cyan-400">this</span>.strategy.<span class="text-yellow-300">calculate</span>(price);
+    }
+}</pre>
         </div>
     </div>
     <script src="js/strategy.js"></script>
 </body>
-
 </html>

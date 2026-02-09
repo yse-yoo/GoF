@@ -20,6 +20,33 @@
     </header>
 
     <main class="max-w-6xl mx-auto px-6 pb-24">
+        <section class="mt-12 p-8 bg-white rounded-2xl shadow-sm border border-gray-200">
+            <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                <span>📚</span> GoF（Gang of Four）とは？
+            </h2>
+            <div class="space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                    <strong>GoF</strong> とは、1994年に出版された名著『Design Patterns: Elements of Reusable Object-Oriented Software』の著者である4名（Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides）の愛称です。
+                </p>
+                <p>
+                    彼らはオブジェクト指向プログラミングにおける<strong>「先人の知恵（設計の型）」</strong>を 23 種類のパターンとして整理しました。これらを活用することで、以下のようなメリットが得られます。
+                </p>
+                <ul class="grid md:grid-cols-3 gap-4 mt-4">
+                    <li class="p-4 bg-gray-50 rounded-lg border-l-4 border-slate-400">
+                        <strong class="text-slate-900 block mb-1">再利用性</strong>
+                        実証済みの設計を適用することで、車輪の再発明を防ぎます。
+                    </li>
+                    <li class="p-4 bg-gray-50 rounded-lg border-l-4 border-slate-400">
+                        <strong class="text-slate-900 block mb-1">メンテナンス性</strong>
+                        コードが整理され、将来の変更や拡張に強い構造になります。
+                    </li>
+                    <li class="p-4 bg-gray-50 rounded-lg border-l-4 border-slate-400">
+                        <strong class="text-slate-900 block mb-1">共通言語</strong>
+                        「ここはシングルトンで」の一言で、設計の意図が即座に伝わります。
+                    </li>
+                </ul>
+            </div>
+        </section>
         
         <nav class="sticky top-4 z-50 my-10 p-4 bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-gray-100">
             <div class="flex flex-wrap justify-center gap-6 text-sm font-bold">
@@ -51,7 +78,7 @@
                     <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">Builder</span>
                     <h3 class="text-xl font-bold mt-2 mb-2">Notification Builder</h3>
                     <p class="text-gray-600 text-sm mb-4">複雑なオブジェクトを段階的に組み立てて作成します。</p>
-                    <a href="builder.html" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded text-sm hover:bg-indigo-700">デモを見る</a>
+                    <a href="builder.html" class="block text-center py-2 bg-blue-50 text-blue-600 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition">デモを見る</a>
                 </div>
             </div>
         </section>

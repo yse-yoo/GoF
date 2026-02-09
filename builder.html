@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Singleton Theme App</title>
+    <title>Builder Pattern Study</title>
 </head>
-
 <body id="app-body" class="bg-white text-black transition-colors duration-300">
-    <div class="flex flex-col items-center justify-center min-h-screen p-4">
-        <div class="text-center mb-8 w-full max-w-md">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4 gap-8">
+        
+        <div class="text-center w-full max-w-md">
             <h1 class="text-3xl font-bold mb-4">Builder Pattern</h1>
             <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700">
-                
                 <div class="space-y-4 text-left mb-6">
                     <div>
-                        <label class="text-xs font-bold text-gray-400 block mb-1">Type</label>
+                        <label class="text-xs font-bold text-gray-400 block mb-1 uppercase">Type</label>
                         <select id="build-type" class="w-full border p-2 rounded text-sm text-black">
                             <option value="success">Success (成功)</option>
                             <option value="error">Error (エラー)</option>
                         </select>
                     </div>
                     <div>
-                        <label class="text-xs font-bold text-gray-400 block mb-1">Message</label>
+                        <label class="text-xs font-bold text-gray-400 block mb-1 uppercase">Message</label>
                         <input id="build-msg" type="text" placeholder="メッセージを入力..." class="w-full border p-2 rounded text-sm text-black">
                     </div>
                 </div>
@@ -32,20 +30,49 @@
                 </button>
                 
                 <div id="preview-area" class="mt-6 flex justify-center min-h-[80px]">
-                    </div>
+                    <p class="text-gray-400 text-sm self-center italic">成果物がここに表示されます</p>
+                </div>
             </div>
         </div>
 
         <div id="info-card" class="max-w-2xl w-full p-6 bg-gray-100 rounded-xl border border-gray-200 transition-colors duration-300">
             <h2 class="text-xl font-bold mb-3 border-b pb-2">Pattern 解説: Builder</h2>
-            <ul class="space-y-4 text-sm leading-relaxed">
-                <li>**1. 構築手順の分離:** オブジェクトの「表現方法」と「構築手順」を切り離します。同じ手順でも、使うビルダーによって異なる結果を得られます。</li>
-                <li>**2. 読みやすさの向上:** コンストラクタの引数が10個もあるような「巨大なコンストラクタ」を避け、メソッドチェーンなどで分かりやすく構築できます。</li>
-                <li>**3. Webでの用途:** 複雑なUIコンポーネントの動的生成、SQLクエリビルダ、リクエストパラメータの構築などで多用されます。</li>
+            <ul class="space-y-4 text-sm md:text-base">
+                <li class="flex gap-3">
+                    <span class="text-blue-500 font-bold">1. 構築手順の分離</span>
+                    <span>ディレクター（監督者）がビルダーに指示を出すことで、一貫した手順で異なる製品を作れます。</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-blue-500 font-bold">2. メソッドチェーン</span>
+                    <span><code>.setColor().setIcon()</code> のように繋げて書くことで、構築過程が直感的になります。</span>
+                </li>
             </ul>
+        </div>
+
+        <div id="code-card" class="max-w-2xl w-full p-6 bg-slate-900 text-slate-300 rounded-xl shadow-xl border border-slate-700">
+            <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-2">
+                <h3 class="text-sm font-mono font-bold text-slate-400">js/builder.js</h3>
+                <span class="text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-400 uppercase">JavaScript</span>
+            </div>
+            <pre class="text-xs md:text-sm overflow-x-auto leading-relaxed font-mono">
+<span class="text-gray-500">// ビルダー: 手順をメソッドとして提供</span>
+<span class="text-pink-400">class</span> <span class="text-yellow-300">NotificationBuilder</span> {
+    <span class="text-yellow-300">setColor</span>(color) { <span class="text-cyan-400">this</span>.card.color = color; <span class="text-pink-400">return this</span>; }
+    <span class="text-yellow-300">setIcon</span>(icon)   { <span class="text-cyan-400">this</span>.card.icon = icon; <span class="text-pink-400">return this</span>; }
+    <span class="text-yellow-300">build</span>() { <span class="text-pink-400">return</span> <span class="text-cyan-400">this</span>.card; }
+}
+
+<span class="text-gray-500">// 監督者: 構築のレシピ（手順）を定義</span>
+<span class="text-pink-400">class</span> <span class="text-yellow-300">NotificationDirector</span> {
+    <span class="text-yellow-300">constructSuccess</span>(builder, msg) {
+        <span class="text-pink-400">return</span> builder
+            .<span class="text-yellow-300">setColor</span>(<span class="text-orange-300">'bg-green-100'</span>)
+            .<span class="text-yellow-300">setIcon</span>(<span class="text-orange-300">'✅'</span>)
+            .<span class="text-yellow-300">build</span>();
+    }
+}</pre>
         </div>
     </div>
     <script src="js/builder.js"></script>
 </body>
-
 </html>
