@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>GoF Design Patterns Portal</title>
     <style>
-        html { scroll-behavior: smooth; }
-        .pattern-card:hover { transform: translateY(-4px); }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .pattern-card:hover {
+            transform: translateY(-4px);
+        }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-900 min-h-screen">
 
     <header class="bg-slate-900 text-white py-16 px-4 shadow-xl text-center">
@@ -26,10 +33,12 @@
             </h2>
             <div class="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                    <strong>GoF</strong> とは、1994年に出版された名著『Design Patterns: Elements of Reusable Object-Oriented Software』の著者である4名（Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides）の愛称です。
+                    <strong>GoF</strong> とは、1994年に出版された名著『Design Patterns: Elements of Reusable Object-Oriented
+                    Software』の著者である4名（Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides）の愛称です。
                 </p>
                 <p>
-                    彼らはオブジェクト指向プログラミングにおける<strong>「先人の知恵（設計の型）」</strong>を 23 種類のパターンとして整理しました。これらを活用することで、以下のようなメリットが得られます。
+                    彼らはオブジェクト指向プログラミングにおける<strong>「先人の知恵（設計の型）」</strong>を 23
+                    種類のパターンとして整理しました。これらを活用することで、以下のようなメリットが得られます。
                 </p>
                 <ul class="grid md:grid-cols-3 gap-4 mt-4">
                     <li class="p-4 bg-gray-50 rounded-lg border-l-4 border-slate-400">
@@ -47,8 +56,89 @@
                 </ul>
             </div>
         </section>
-        
-        <nav class="sticky top-4 z-50 my-10 p-4 bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-gray-100">
+
+        <section class="mt-12 bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="p-6 border-b border-gray-100 bg-slate-50 flex justify-between items-center">
+                <h2 class="text-xl font-bold flex items-center gap-2">
+                    <span>📊</span> GoF 23パターン・チェックリスト
+                </h2>
+                <span class="text-xs font-medium text-slate-500">進捗: 9 / 23 (39%)</span>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead class="bg-slate-100 text-slate-600 uppercase text-[10px] font-black tracking-widest">
+                        <tr>
+                            <th class="px-6 py-3 border-b">カテゴリ</th>
+                            <th class="px-6 py-3 border-b">パターン名</th>
+                            <th class="px-6 py-3 border-b">概要</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr class="hover:bg-blue-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-blue-600">生成</td>
+                            <td class="px-6 py-4 font-mono font-bold">Singleton</td>
+                            <td class="px-6 py-4 text-gray-500">インスタンスを1つに制限</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-blue-600">生成</td>
+                            <td class="px-6 py-4 font-mono font-bold">Factory Method</td>
+                            <td class="px-6 py-4 text-gray-500">サブクラスで生成を決定</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-blue-600">生成</td>
+                            <td class="px-6 py-4 font-mono font-bold">Builder</td>
+                            <td class="px-6 py-4 text-gray-500">複雑な構築手順の分離</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-blue-600">生成</td>
+                            <td class="px-6 py-4 font-mono font-bold text-gray-400">Abstract Factory</td>
+                            <td class="px-6 py-4 text-gray-400 italic">関連する部品群の生成</td>
+                        </tr>
+
+                        <tr class="hover:bg-emerald-50/30 transition border-t-2 border-slate-100">
+                            <td class="px-6 py-4 font-bold text-emerald-600">構造</td>
+                            <td class="px-6 py-4 font-mono font-bold">Adapter</td>
+                            <td class="px-6 py-4 text-gray-500">インターフェースを適合させる</td>
+                        </tr>
+                        <tr class="hover:bg-emerald-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-emerald-600">構造</td>
+                            <td class="px-6 py-4 font-mono font-bold">Decorator</td>
+                            <td class="px-6 py-4 text-gray-500">動的に機能を追加</td>
+                        </tr>
+                        <tr class="hover:bg-emerald-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-emerald-600">構造</td>
+                            <td class="px-6 py-4 font-mono font-bold">Facade</td>
+                            <td class="px-6 py-4 text-gray-500">窓口を一本化</td>
+                        </tr>
+
+                        <tr class="hover:bg-orange-50/30 transition border-t-2 border-slate-100">
+                            <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
+                            <td class="px-6 py-4 font-mono font-bold">Observer</td>
+                            <td class="px-6 py-4 text-gray-500">変更を他へ自動通知</td>
+                        </tr>
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
+                            <td class="px-6 py-4 font-mono font-bold">Strategy</td>
+                            <td class="px-6 py-4 text-gray-500">アルゴリズムの動的切替</td>
+                        </tr>
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
+                            <td class="px-6 py-4 font-mono font-bold">State</td>
+                            <td class="px-6 py-4 text-gray-500">状態による振る舞いの変化</td>
+                        </tr>
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
+                            <td class="px-6 py-4 font-mono font-bold text-gray-400">Template Method</td>
+                            <td class="px-6 py-4 text-gray-400 italic">アルゴリズムの骨組みを規定</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <nav
+            class="sticky top-4 z-50 my-10 p-4 bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-gray-100">
             <div class="flex flex-wrap justify-center gap-6 text-sm font-bold">
                 <a href="#creational" class="text-blue-600 hover:text-blue-800">生成 (Creational)</a>
                 <a href="#structural" class="text-emerald-600 hover:text-emerald-800">構造 (Structural)</a>
@@ -66,19 +156,22 @@
                     <div class="text-xs font-black text-blue-500 mb-2 uppercase">Singleton</div>
                     <h3 class="text-xl font-bold mb-3">Theme Manager</h3>
                     <p class="text-gray-500 text-sm mb-6">インスタンスの唯一性を保証。アプリ全体のテーマ（Light/Dark）を一括管理します。</p>
-                    <a href="singleton.html" class="block text-center py-2 bg-blue-50 text-blue-600 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition">デモを見る</a>
+                    <a href="singleton.html"
+                        class="block text-center py-2 bg-blue-50 text-blue-600 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition">デモを見る</a>
                 </div>
                 <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
                     <div class="text-xs font-black text-blue-500 mb-2 uppercase">Factory Method</div>
                     <h3 class="text-xl font-bold mb-3">UI Factory</h3>
                     <p class="text-gray-500 text-sm mb-6">生成ロジックの隠蔽。条件に応じて異なるUIコンポーネントを動的に生成します。</p>
-                    <a href="factory.html" class="block text-center py-2 bg-blue-50 text-blue-600 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition">デモを見る</a>
+                    <a href="factory.html"
+                        class="block text-center py-2 bg-blue-50 text-blue-600 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition">デモを見る</a>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition">
                     <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">Builder</span>
                     <h3 class="text-xl font-bold mt-2 mb-2">Notification Builder</h3>
                     <p class="text-gray-600 text-sm mb-4">複雑なオブジェクトを段階的に組み立てて作成します。</p>
-                    <a href="builder.html" class="block text-center py-2 bg-blue-50 text-blue-600 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition">デモを見る</a>
+                    <a href="builder.html"
+                        class="block text-center py-2 bg-blue-50 text-blue-600 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition">デモを見る</a>
                 </div>
             </div>
         </section>
@@ -93,19 +186,22 @@
                     <div class="text-xs font-black text-emerald-500 mb-2 uppercase">Adapter</div>
                     <h3 class="text-xl font-bold mb-3">Data Converter</h3>
                     <p class="text-gray-500 text-sm mb-6">インターフェースの変換。古い形式のデータを現代的なUIに適合させます。</p>
-                    <a href="adapter.html" class="block text-center py-2 bg-emerald-50 text-emerald-600 rounded-lg font-bold hover:bg-emerald-600 hover:text-white transition">デモを見る</a>
+                    <a href="adapter.html"
+                        class="block text-center py-2 bg-emerald-50 text-emerald-600 rounded-lg font-bold hover:bg-emerald-600 hover:text-white transition">デモを見る</a>
                 </div>
                 <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
                     <div class="text-xs font-black text-emerald-500 mb-2 uppercase">Decorator</div>
                     <h3 class="text-xl font-bold mb-3">Text Styler</h3>
                     <p class="text-gray-500 text-sm mb-6">動的な機能拡張。テキストに対して太字や枠線などの装飾を重ねがけします。</p>
-                    <a href="decorator.html" class="block text-center py-2 bg-emerald-50 text-emerald-600 rounded-lg font-bold hover:bg-emerald-600 hover:text-white transition">デモを見る</a>
+                    <a href="decorator.html"
+                        class="block text-center py-2 bg-emerald-50 text-emerald-600 rounded-lg font-bold hover:bg-emerald-600 hover:text-white transition">デモを見る</a>
                 </div>
                 <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
                     <div class="text-xs font-black text-emerald-500 mb-2 uppercase">Facade</div>
                     <h3 class="text-xl font-bold mb-3">Home Cinema</h3>
                     <p class="text-gray-500 text-sm mb-6">窓口の一本化。複数の複雑なサブシステムを一括操作する簡潔な命令を提供します。</p>
-                    <a href="facade.html" class="block text-center py-2 bg-emerald-50 text-emerald-600 rounded-lg font-bold hover:bg-emerald-600 hover:text-white transition">デモを見る</a>
+                    <a href="facade.html"
+                        class="block text-center py-2 bg-emerald-50 text-emerald-600 rounded-lg font-bold hover:bg-emerald-600 hover:text-white transition">デモを見る</a>
                 </div>
             </div>
         </section>
@@ -120,19 +216,22 @@
                     <div class="text-xs font-black text-orange-500 mb-2 uppercase">Observer</div>
                     <h3 class="text-xl font-bold mb-3">Message Notifier</h3>
                     <p class="text-gray-500 text-sm mb-6">状態変化の自動通知。ある変更を登録された複数の監視者へ一斉に伝えます。</p>
-                    <a href="observer.html" class="block text-center py-2 bg-orange-50 text-orange-600 rounded-lg font-bold hover:bg-orange-600 hover:text-white transition">デモを見る</a>
+                    <a href="observer.html"
+                        class="block text-center py-2 bg-orange-50 text-orange-600 rounded-lg font-bold hover:bg-orange-600 hover:text-white transition">デモを見る</a>
                 </div>
                 <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
                     <div class="text-xs font-black text-orange-500 mb-2 uppercase">Strategy</div>
                     <h3 class="text-xl font-bold mb-3">Price Calculator</h3>
                     <p class="text-gray-500 text-sm mb-6">アルゴリズムの切り替え。割引計算などのロジックを動的に入れ替えます。</p>
-                    <a href="strategy.html" class="block text-center py-2 bg-orange-50 text-orange-600 rounded-lg font-bold hover:bg-orange-600 hover:text-white transition">デモを見る</a>
+                    <a href="strategy.html"
+                        class="block text-center py-2 bg-orange-50 text-orange-600 rounded-lg font-bold hover:bg-orange-600 hover:text-white transition">デモを見る</a>
                 </div>
                 <div class="pattern-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all">
                     <div class="text-xs font-black text-orange-500 mb-2 uppercase">State</div>
                     <h3 class="text-xl font-bold mb-3">Workflow Manager</h3>
                     <p class="text-gray-500 text-sm mb-6">状態による振る舞いの変化。進捗状況に応じてボタンの機能を自動変更します。</p>
-                    <a href="state.html" class="block text-center py-2 bg-orange-50 text-orange-600 rounded-lg font-bold hover:bg-orange-600 hover:text-white transition">デモを見る</a>
+                    <a href="state.html"
+                        class="block text-center py-2 bg-orange-50 text-orange-600 rounded-lg font-bold hover:bg-orange-600 hover:text-white transition">デモを見る</a>
                 </div>
             </div>
         </section>
@@ -145,4 +244,5 @@
     </footer>
 
 </body>
+
 </html>
