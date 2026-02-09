@@ -57,12 +57,11 @@
             </div>
         </section>
 
-        <section class="mt-12 bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-            <div class="p-6 border-b border-gray-100 bg-slate-50 flex justify-between items-center">
+<section class="mt-12 bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="p-6 border-b border-gray-100 bg-slate-50">
                 <h2 class="text-xl font-bold flex items-center gap-2">
-                    <span>📊</span> GoF 23パターン・チェックリスト
+                    <span>📖</span> GoF 23パターン・クイックリファレンス
                 </h2>
-                <span class="text-xs font-medium text-slate-500">進捗: 9 / 23 (39%)</span>
             </div>
 
             <div class="overflow-x-auto">
@@ -92,35 +91,60 @@
                         </tr>
                         <tr class="hover:bg-blue-50/30 transition">
                             <td class="px-6 py-4 font-bold text-blue-600">生成</td>
-                            <td class="px-6 py-4 font-mono font-bold text-gray-400">Abstract Factory</td>
-                            <td class="px-6 py-4 text-gray-400 italic">関連する部品群の生成</td>
+                            <td class="px-6 py-4 font-mono font-bold">Abstract Factory</td>
+                            <td class="px-6 py-4 text-gray-500">関連する部品群をまとめて生成</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-blue-600">生成</td>
+                            <td class="px-6 py-4 font-mono font-bold">Prototype</td>
+                            <td class="px-6 py-4 text-gray-500">既存の複製による生成</td>
                         </tr>
 
                         <tr class="hover:bg-emerald-50/30 transition border-t-2 border-slate-100">
                             <td class="px-6 py-4 font-bold text-emerald-600">構造</td>
                             <td class="px-6 py-4 font-mono font-bold">Adapter</td>
-                            <td class="px-6 py-4 text-gray-500">インターフェースを適合させる</td>
+                            <td class="px-6 py-4 text-gray-500">適合によるインターフェース変換</td>
                         </tr>
                         <tr class="hover:bg-emerald-50/30 transition">
                             <td class="px-6 py-4 font-bold text-emerald-600">構造</td>
                             <td class="px-6 py-4 font-mono font-bold">Decorator</td>
-                            <td class="px-6 py-4 text-gray-500">動的に機能を追加</td>
+                            <td class="px-6 py-4 text-gray-500">動的な機能・装飾の追加</td>
                         </tr>
                         <tr class="hover:bg-emerald-50/30 transition">
                             <td class="px-6 py-4 font-bold text-emerald-600">構造</td>
                             <td class="px-6 py-4 font-mono font-bold">Facade</td>
-                            <td class="px-6 py-4 text-gray-500">窓口を一本化</td>
+                            <td class="px-6 py-4 text-gray-500">複雑なシステム窓口の一本化</td>
+                        </tr>
+                        <tr class="hover:bg-emerald-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-emerald-600">構造</td>
+                            <td class="px-6 py-4 font-mono font-bold">Bridge</td>
+                            <td class="px-6 py-4 text-gray-500">実装と抽象を分離して独立させる</td>
+                        </tr>
+                        <tr class="hover:bg-emerald-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-emerald-600">構造</td>
+                            <td class="px-6 py-4 font-mono font-bold">Composite</td>
+                            <td class="px-6 py-4 text-gray-500">再帰的な木構造の表現</td>
+                        </tr>
+                        <tr class="hover:bg-emerald-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-emerald-600">構造</td>
+                            <td class="px-6 py-4 font-mono font-bold">Flyweight</td>
+                            <td class="px-6 py-4 text-gray-500">リソース節約のためのオブジェクト共有</td>
+                        </tr>
+                        <tr class="hover:bg-emerald-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-emerald-600">構造</td>
+                            <td class="px-6 py-4 font-mono font-bold">Proxy</td>
+                            <td class="px-6 py-4 text-gray-500">代理人によるアクセス制御</td>
                         </tr>
 
                         <tr class="hover:bg-orange-50/30 transition border-t-2 border-slate-100">
                             <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
                             <td class="px-6 py-4 font-mono font-bold">Observer</td>
-                            <td class="px-6 py-4 text-gray-500">変更を他へ自動通知</td>
+                            <td class="px-6 py-4 text-gray-500">状態変化の自動通知</td>
                         </tr>
                         <tr class="hover:bg-orange-50/30 transition">
                             <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
                             <td class="px-6 py-4 font-mono font-bold">Strategy</td>
-                            <td class="px-6 py-4 text-gray-500">アルゴリズムの動的切替</td>
+                            <td class="px-6 py-4 text-gray-500">アルゴリズムの動的な切り替え</td>
                         </tr>
                         <tr class="hover:bg-orange-50/30 transition">
                             <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
@@ -129,8 +153,43 @@
                         </tr>
                         <tr class="hover:bg-orange-50/30 transition">
                             <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
-                            <td class="px-6 py-4 font-mono font-bold text-gray-400">Template Method</td>
-                            <td class="px-6 py-4 text-gray-400 italic">アルゴリズムの骨組みを規定</td>
+                            <td class="px-6 py-4 font-mono font-bold">Command</td>
+                            <td class="px-6 py-4 text-gray-500">命令のカプセル化とUndo/Redo</td>
+                        </tr>
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
+                            <td class="px-6 py-4 font-mono font-bold">Template Method</td>
+                            <td class="px-6 py-4 text-gray-500">アルゴリズムの骨組みを規定</td>
+                        </tr>
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
+                            <td class="px-6 py-4 font-mono font-bold">Iterator</td>
+                            <td class="px-6 py-4 text-gray-500">集合要素への順次アクセス</td>
+                        </tr>
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
+                            <td class="px-6 py-4 font-mono font-bold">Mediator</td>
+                            <td class="px-6 py-4 text-gray-500">通信を仲介役に集約して簡素化</td>
+                        </tr>
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
+                            <td class="px-6 py-4 font-mono font-bold">Memento</td>
+                            <td class="px-6 py-4 text-gray-500">状態の保存と復元</td>
+                        </tr>
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
+                            <td class="px-6 py-4 font-mono font-bold">Visitor</td>
+                            <td class="px-6 py-4 text-gray-500">データ構造と処理の分離</td>
+                        </tr>
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
+                            <td class="px-6 py-4 font-mono font-bold">Chain of Responsibility</td>
+                            <td class="px-6 py-4 text-gray-500">複数の対象による処理の連鎖</td>
+                        </tr>
+                        <tr class="hover:bg-orange-50/30 transition">
+                            <td class="px-6 py-4 font-bold text-orange-600">振る舞い</td>
+                            <td class="px-6 py-4 font-mono font-bold">Interpreter</td>
+                            <td class="px-6 py-4 text-gray-500">特定言語の構文解釈と実行</td>
                         </tr>
                     </tbody>
                 </table>
